@@ -4,14 +4,21 @@
  * and open the template in the editor.
  */
 package gestionesocket;
-import java.net.*;
 
 
 /**
  *
  * @author nicou
  */
-public class ClientSocket {
+public class Client {
+
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String[] args) {
+        // TODO code application logic here
+        // socket oggetto DataSocket
+
+    }
     
-    ServerSocket serverSocket = new ServerSocket(2000);
 }

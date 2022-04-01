@@ -5,6 +5,7 @@
  */
 package gestionesocket;
 
+
 /**
  *
  * @author nicou
@@ -16,6 +17,8 @@ public class GestioneSocket {
      */
     public static void main(String[] args) {
         // TODO code application logic here
+        // socket oggetto DataSocket
+
     }
     
 }
