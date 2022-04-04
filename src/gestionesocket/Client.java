@@ -5,6 +5,11 @@
  */
 package gestionesocket;
 
+import java.io.IOException;
+import java.net.Socket;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 
 /**
  *
@@ -16,8 +21,14 @@ public class Client {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        // TODO code application logic here
-        // socket oggetto DataSocket
+        
+        try {
+            // apertura socket con IP + SERVER
+            Socket socket = new Socket("127.0.0.1", 2000);
+            socket.close();
+        } catch (IOException ex) {
+            Logger.getLogger(Client.class.getName()).log(Level.SEVERE, null, ex);
+        }
 
     }
     
