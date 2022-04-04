@@ -5,6 +5,7 @@
  */
 package gestionesocket;
 
+import java.io.DataOutputStream;
 import java.io.IOException;
 import java.net.Socket;
 import java.util.logging.Level;
@@ -25,6 +26,8 @@ public class Client {
         try {
             // apertura socket con IP + SERVER
             Socket socket = new Socket("127.0.0.1", 2000);
+            
+            DataOutputStream dataoutputstr = new DataOutputStream(socket.getOutputStream());
             socket.close();
         } catch (IOException ex) {
             Logger.getLogger(Client.class.getName()).log(Level.SEVERE, null, ex);

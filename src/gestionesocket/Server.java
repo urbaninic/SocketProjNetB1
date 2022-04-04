@@ -38,6 +38,7 @@ public class Server {
             
             // scrivere al Client un messaggio di saluto dopo l'avvenuta connessione
             System.out.println("Connessione avvenuta");
+            System.out.println(bufRead);
             // chiusura connessione 
             socket.close();
         } catch (IOException ex) {
