@@ -5,8 +5,10 @@
  */
 package gestionesocket;
 import java.io.BufferedReader;
+import java.io.BufferedWriter;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.io.OutputStreamWriter;
 import java.net.ServerSocket;
 import java.net.Socket;
 import java.util.logging.Level;
@@ -33,12 +35,28 @@ public class Server {
             // istruzione per far rimanere il server in ascolto di richiesta di connessione
             Socket socket = serSock.accept();
             
+            OutputStreamWriter osw = new OutputStreamWriter(socket.getOutputStream());
+            BufferedWriter bf = new BufferedWriter(osw);
+            
+            // scrittura messaggio benvenuto
+            bf.write("Ciao");
+            bf.flush();
+            
+            // ricezione richiesta connessione da client
+            InputStreamReader isr = new InputStreamReader(socket.getInputStream());
+            BufferedReader br = new BufferedReader(isr);
+            
+            String riceviMess = br.readLine();
+            
+            // stampa stringa
+            System.out.println(riceviMess);
+            
             // Associo a oggetto socket possibilità di lettura
-            BufferedReader bufRead = new BufferedReader(new InputStreamReader(socket.getInputStream()));
+            /*
             
             // scrivere al Client un messaggio di saluto dopo l'avvenuta connessione
             System.out.println("Connessione avvenuta");
-            System.out.println(bufRead);
+            System.out.println(bufRead);*/
             // chiusura connessione 
             socket.close();
         } catch (IOException ex) {
