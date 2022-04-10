@@ -31,7 +31,7 @@ public class Client {
         try {
             // apertura socket con IP + SERVER
             Socket socket = new Socket("127.0.0.1", 2000);
-            
+            System.out.println("Questo è il CLIENT");
             // verifica connessione            
             //System.out.println(socket.isConnected());
             
@@ -43,11 +43,14 @@ public class Client {
             
             
             //punto 2 es.2
-           
             BufferedWriter bufWrite = new BufferedWriter(new OutputStreamWriter(socket.getOutputStream()));
-            String sendMess = "Richiedo connessione";
-            bufWrite.write(sendMess);
+            String sendMess = "Richiedo connessione - dammi l'ora";
+            bufWrite.write(sendMess+"\n\r");
             bufWrite.flush();
+            
+            BufferedReader ora = new BufferedReader(new InputStreamReader(socket.getInputStream()));
+            String receiveTime = ora.readLine();
+            System.out.println("Ecco a te l'ora: " + receiveTime);
             
             socket.close();
         } catch (IOException ex) {
